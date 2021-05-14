@@ -96,4 +96,4 @@ You can also refer to the  [RasaHQ / rasa-demo](https://github.com/RasaHQ/rasa-d
 - [Botfront](https://github.com/botfront/botfront)
 - [Articulate](https://github.com/samtecspg/articulate)
 
-You can build on top of the ideas discussed here to implement your solutions. Refer to the [chatwoot api](https://www.chatwoot.com/developers/api/) to see the available options in chatwoot for your bots.Pretty excited to see what you guys come up with. 
+You can build on top of the ideas discussed here to implement your solutions. Refer to the [chatwoot api](https://www.chatwoot.com/developers/api/) to see the available options in chatwoot for your bots. 
