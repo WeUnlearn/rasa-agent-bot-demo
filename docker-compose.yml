@@ -1,0 +1,9 @@
+version: ‘3’
+services:
+      docker-tutorial:
+        build:
+          context: .
+      dockerfile: .docker/Dockerfile
+    image: docker-tutorial
+    ports:
+          – 8080:80
