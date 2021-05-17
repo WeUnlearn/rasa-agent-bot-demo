@@ -2,9 +2,9 @@
 
 /* Config */
 
-$rasa_url = 'http://localhost:5005';
-$chatwoot_url = 'http://localhost:3000';
-$chatwoot_bot_token = '<your agent bot token>';
+$rasa_url = 'http://rasa:5005';
+$chatwoot_url = 'http://rails:3000';
+$chatwoot_bot_token = getenv('BOT_ACCESS_TOKEN');
 
 
 $json = file_get_contents('php://input');
@@ -17,7 +17,7 @@ $message = $data->content;
 $conversation = $data->conversation->id;
 $contact = $data->sender->id;
 $account = $data->account->id;
-
+$inbox = $data->conversation->status;
 
 error_log("message_type: {$message_type}", 0);
 error_log("message: {$message}", 0);
@@ -27,12 +27,13 @@ error_log("account: {$account}", 0);
  
 if($message_type == "incoming")
 {  
+  if($inbox == "bot"){
   error_log("sending message to bot: {$message}", 0);
   $bot_response = send_to_bot($contact, $message);
   error_log("bot replied: {$bot_response->text}", 0);
+  }
   $create_message = send_to_chatwoot($account, $conversation, $bot_response->text);
 }
-
 
 function send_to_bot($sender, $message){
   global $rasa_url;
